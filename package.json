@@ -1,13 +1,13 @@
 {
 	"name": "ts-helpers",
 	"type": "module",
-	"private": true,
+	"private": false,
 	"version": "0.0.1",
 	"description": "A collection of convenience ts utilities",
 	"main": "index.ts",
 	"scripts": {
 		"format": "prettier --write .",
-    "test": "vitest"
+		"test": "vitest"
 	},
 	"exports": {
 		"./arrays": "./src/arrays.ts",
