@@ -1,5 +1,5 @@
 /**
- * Random integer in [a;b]
+ * Returns a random integer in [a;b]
  * @param min lower bound
  * @param max upper bound
  */
