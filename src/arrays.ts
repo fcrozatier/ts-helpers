@@ -16,7 +16,7 @@ export function mean(array: number[]) {
 }
 
 /**
- * Find a value in an array given a predicate, and return the value and its index
+ * Finds a value in an array given a predicate, and return the value and its index
  */
 export function findIndexAndValue<T>(
 	arr: T[],
@@ -33,4 +33,32 @@ export function findIndexAndValue<T>(
 	});
 
 	return found;
+}
+
+/**
+ * Returns an array of numbers between 0 and `stop` excluded in increments of 1
+ */
+export function range(stop: number): number[];
+/**
+ * Returns an array of numbers between `start` and `stop` excluded in increments of 1
+ */
+export function range(start: number, stop: number): number[];
+/**
+ * Returns an array of numbers with `start` included and `stop` excluded in increments of `step`
+ */
+export function range(start: number, stop: number, step: number): number[];
+export function range(startOrStop: number, stop?: number, step?: number) {
+	let start = startOrStop;
+	if (stop !== undefined && step !== undefined) {
+		return Array.from(
+			{ length: (stop - start) / step },
+			(_, i) => start + i * step,
+		);
+	} else if (stop !== undefined) {
+		return Array.from({ length: stop - start }, (_, i) => start + i);
+	} else {
+		const stop = startOrStop;
+		start = 0;
+		return Array.from({ length: stop - start }, (_, i) => start + i);
+	}
 }
