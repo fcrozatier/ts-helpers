@@ -1,5 +1,6 @@
 /**
  * Returns the sum of an array of numbers
+ * By default the result is 0 on an empty array
  */
 export function sum(array: number[]) {
 	return array.reduce((p, c) => p + c, 0);

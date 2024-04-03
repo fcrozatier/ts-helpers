@@ -1,6 +1,13 @@
-import { findIndexAndValue } from "../src/arrays";
+import { findIndexAndValue, sum } from "../src/arrays";
+import { describe } from "vitest";
 import { expect } from "vitest";
 import { it } from "vitest";
+
+describe("sum", () => {
+	it("returns 0 for an empty array", () => {
+		expect(sum([])).toBe(0);
+	});
+});
 
 const array = [
 	{ text: "banana", public: true },
