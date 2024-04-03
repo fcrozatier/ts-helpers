@@ -1,5 +1,5 @@
 {
-	"name": "ts-helpers",
+	"name": "@fcrozatier/ts-helpers",
 	"type": "module",
 	"private": false,
 	"version": "0.0.1",
