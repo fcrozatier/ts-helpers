@@ -1,5 +1,5 @@
 /**
- * Debounce
+ * Debounce decorator
  * @param func - Function to debounce.
  * @param delay - Minimum delay in ms between calls.
  * @param lazy - If lazy then every new call to `func` resets the delay timer. Otherwise the function ensures there is at least `delay` ms between calls
