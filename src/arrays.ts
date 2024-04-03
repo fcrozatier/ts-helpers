@@ -6,6 +6,15 @@ export function sum(array: number[]) {
 }
 
 /**
+ * Returns the mean of an array of number.
+ * By default the mean of an empty array is 0
+ */
+export function mean(array: number[]) {
+	if (array.length === 0) return 0;
+	return sum(array) / array.length;
+}
+
+/**
  * Find a value in an array given a predicate, and return the value and its index
  */
 export function findIndexAndValue<T>(
