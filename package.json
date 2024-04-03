@@ -1,9 +1,8 @@
 {
 	"name": "@fcrozatier/ts-helpers",
 	"type": "module",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "A collection of convenience ts utilities",
-	"main": "index.ts",
 	"scripts": {
 		"format": "prettier --write .",
 		"test": "vitest"
@@ -13,6 +12,7 @@
 	],
 	"exports": {
 		"./arrays": "./src/arrays.ts",
+		"./objects": "./src/objects.ts",
 		"./random": "./src/random.ts",
 		"./sets": "./src/sets.ts"
 	},
