@@ -26,3 +26,10 @@ export function debounce<T, U>(
 
 	return debounced;
 }
+
+/**
+ * Waits `ms` milliseconds
+ */
+export function sleep(ms: number) {
+	return new Promise(() => setTimeout(() => {}, ms));
+}
