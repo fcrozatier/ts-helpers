@@ -6,13 +6,13 @@ export function sum(array: number[]) {
 }
 
 /**
- * Finds a value in an array given a predicate, and return the value and its index
+ * Find a value in an array given a predicate, and return the value and its index
  */
-export function findWithIndex<T>(
+export function findIndexAndValue<T>(
 	arr: T[],
-	predicate: (value: T, index: number, obj: T[]) => unknown,
+	predicate: (value: T, index: number, obj: NoInfer<T>[]) => unknown,
 ) {
-	let found: { value: T; index: number } | undefined;
+	let found: { value?: T; index: number } = { index: -1 };
 
 	arr.some((value, index) => {
 		if (predicate(value, index, arr)) {
@@ -23,17 +23,4 @@ export function findWithIndex<T>(
 	});
 
 	return found;
-}
-
-/**
- * Type predicate for narrowing a 'string' to be used to index an object
- *
- * Example:
- * Object.keys(user).forEach((key) => {
-		if (isKey(user, key)) {
-			console.log(user[key]);
-			}
- */
-export function isKey<T extends object>(x: T, k: PropertyKey): k is keyof T {
-	return k in x;
 }
