@@ -12,6 +12,7 @@
 		"./src"
 	],
 	"exports": {
+		".": "./index.ts",
 		"./arrays": "./src/arrays.ts",
 		"./numbers": "./src/numbers.ts",
 		"./objects": "./src/objects.ts",
@@ -24,6 +25,13 @@
 		"helpers"
 	],
 	"author": "Frédéric Crozatier",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/fcrozatier/ts-helpers.git"
+	},
+	"bugs": {
+		"url": "https://github.com/fcrozatier/ts-helpers/issues"
+	},
 	"license": "MIT",
 	"devDependencies": {
 		"prettier": "^3.2.5",
