@@ -1,11 +1,11 @@
 /**
  * Random integer in [a;b]
- * @param a lower bound
- * @param b upper bound
+ * @param min lower bound
+ * @param max upper bound
  */
-export function randint(a: number, b: number) {
-	if (a > b) {
+export function randint(min: number, max: number) {
+	if (min > max) {
 		throw new Error("min must be less than max");
 	}
-	return a + Math.floor((b - a + 1) * Math.random());
+	return min + Math.floor((max - min + 1) * Math.random());
 }
