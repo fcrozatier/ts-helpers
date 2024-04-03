@@ -14,8 +14,11 @@
 		"./random": "./src/random.ts",
 		"./sets": "./src/sets.ts"
 	},
-	"keywords": [],
-	"author": "",
+	"keywords": [
+		"utilities",
+		"helpers"
+	],
+	"author": "Frédéric Crozatier",
 	"license": "MIT",
 	"devDependencies": {
 		"prettier": "^3.2.5",
