@@ -1,0 +1,7 @@
+export function areEqualSets(a: Set<unknown>, b: Set<unknown>) {
+	if (a.size !== b.size) {
+		return false;
+	}
+
+	return [...b].map((el) => a.has(el)).every(Boolean);
+}
