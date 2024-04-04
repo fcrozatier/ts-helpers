@@ -5,20 +5,19 @@
 	"description": "A collection of convenience ts utilities",
 	"scripts": {
 		"format": "prettier --write .",
-		"test": "vitest"
+		"test": "vitest",
+		"build": "tsc"
 	},
-	"main": "index.ts",
 	"files": [
-		"./src"
+		"./build"
 	],
 	"exports": {
-		".": "./index.ts",
-		"./arrays": "./src/arrays.ts",
-		"./numbers": "./src/numbers.ts",
-		"./objects": "./src/objects.ts",
-		"./promises": "./src/promises.ts",
-		"./random": "./src/random.ts",
-		"./sets": "./src/sets.ts"
+		"./arrays": "./build/arrays.ts",
+		"./numbers": "./build/numbers.ts",
+		"./objects": "./build/objects.ts",
+		"./promises": "./build/promises.ts",
+		"./random": "./build/random.ts",
+		"./sets": "./build/sets.ts"
 	},
 	"keywords": [
 		"utilities",
