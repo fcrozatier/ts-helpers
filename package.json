@@ -1,7 +1,7 @@
 {
 	"name": "@fcrozatier/ts-helpers",
 	"type": "module",
-	"version": "0.0.13",
+	"version": "0.0.14",
 	"description": "A collection of convenience ts utilities",
 	"scripts": {
 		"format": "prettier --write .",
