@@ -8,17 +8,17 @@
 		"test": "vitest",
 		"build": "tsc"
 	},
-	"main": "./build/index.ts",
+	"main": "./build/index.js",
 	"files": [
 		"./build"
 	],
 	"exports": {
-		"./arrays": "./build/arrays.ts",
-		"./numbers": "./build/numbers.ts",
-		"./objects": "./build/objects.ts",
-		"./promises": "./build/promises.ts",
-		"./random": "./build/random.ts",
-		"./sets": "./build/sets.ts"
+		"./arrays": "./build/arrays.js",
+		"./numbers": "./build/numbers.js",
+		"./objects": "./build/objects.js",
+		"./promises": "./build/promises.js",
+		"./random": "./build/random.js",
+		"./sets": "./build/sets.js"
 	},
 	"keywords": [
 		"utilities",
