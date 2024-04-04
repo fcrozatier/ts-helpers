@@ -36,15 +36,15 @@ export function findIndexAndValue<T>(
 }
 
 /**
- * Returns an array of numbers between 0 and `stop` excluded in increments of 1
+ * Returns an array of numbers between 0 and `stop` (excluded) in increments of 1
  */
 export function range(stop: number): number[];
 /**
- * Returns an array of numbers between `start` and `stop` excluded in increments of 1
+ * Returns an array of numbers between `start` and `stop` (excluded) in increments of 1
  */
 export function range(start: number, stop: number): number[];
 /**
- * Returns an array of numbers with `start` included and `stop` excluded in increments of `step`
+ * Returns an array of numbers between `start` and `stop` (excluded) in increments of `step`
  */
 export function range(start: number, stop: number, step: number): number[];
 export function range(startOrStop: number, stop?: number, step?: number) {
