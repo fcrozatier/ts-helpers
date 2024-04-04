@@ -15,6 +15,7 @@
 	"exports": {
 		".": "./build/index.js",
 		"./arrays": "./build/arrays.js",
+		"./functions": "./build/functions.js",
 		"./numbers": "./build/numbers.js",
 		"./objects": "./build/objects.js",
 		"./promises": "./build/promises.js",
