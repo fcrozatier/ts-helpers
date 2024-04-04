@@ -1,7 +1,7 @@
 {
 	"name": "@fcrozatier/ts-helpers",
 	"type": "module",
-	"version": "0.0.12",
+	"version": "0.0.13",
 	"description": "A collection of convenience ts utilities",
 	"scripts": {
 		"format": "prettier --write .",
@@ -13,6 +13,7 @@
 		"./build"
 	],
 	"exports": {
+		".": "./build/index.js",
 		"./arrays": "./build/arrays.js",
 		"./numbers": "./build/numbers.js",
 		"./objects": "./build/objects.js",
