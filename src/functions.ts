@@ -7,8 +7,8 @@ export function once<T extends unknown[], U>(fn: (...args: T) => U) {
 
 	return function (...args: T) {
 		if (!called) {
-			fn.call(null, ...args);
 			called = true;
+			return fn(...args);
 		}
 	};
 }
