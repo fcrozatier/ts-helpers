@@ -1,8 +1,8 @@
 /**
  * Debounce decorator
- * @param func - The function to debounce.
- * @param delay - Minimum delay in ms between calls.
- * @param throttle - When debouncing every new call to `func` resets the delay timer. When throttling the function ensures there is at least `delay` ms between calls
+ * @param func The function to debounce.
+ * @param delay (default: 100) Minimum delay in ms between calls.
+ * @param throttle (default: `false`) When debouncing every new call to `func` resets the delay timer. When throttling the function ensures there is at least `delay` ms between calls
  */
 export function debounce<T extends unknown[], U>(
 	func: (...args: T) => U,
