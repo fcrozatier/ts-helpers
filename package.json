@@ -1,7 +1,7 @@
 {
 	"name": "@fcrozatier/ts-helpers",
-	"type": "module",
 	"version": "0.0.16",
+	"type": "module",
 	"description": "A collection of convenience ts utilities",
 	"scripts": {
 		"format": "prettier --write .",
@@ -17,6 +17,7 @@
 		".": "./build/index.js",
 		"./arrays": "./build/arrays.js",
 		"./functions": "./build/functions.js",
+		"./heap": "./build/heap.js",
 		"./numbers": "./build/numbers.js",
 		"./objects": "./build/objects.js",
 		"./promises": "./build/promises.js",
@@ -38,7 +39,7 @@
 	"license": "MIT",
 	"devDependencies": {
 		"prettier": "^3.2.5",
-		"typescript": "^5.4.3",
+		"typescript": "^5.4.4",
 		"vitest": "^1.4.0"
 	}
 }
