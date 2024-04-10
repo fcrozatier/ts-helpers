@@ -1,7 +1,7 @@
 type Comparator<T> = (a: T, b: T) => number;
 
 export class Heap<T> {
-	public comparator: Comparator<T> | undefined;
+	public comparator: Comparator<T>;
 	private elements: T[] = [];
 
 	/**
@@ -9,7 +9,7 @@ export class Heap<T> {
 	 * -1 if a < b, 0 if a == b, 1 if a > b
 	 */
 	constructor(comparator?: Comparator<T>) {
-		this.comparator = comparator;
+		this.comparator = comparator ?? (() => 1);
 	}
 
 	public size() {
@@ -43,6 +43,10 @@ export class Heap<T> {
 
 	public peek() {
 		return this.elements[0];
+	}
+
+	public has(element: T) {
+		return this.elements.includes(element);
 	}
 
 	/**
@@ -88,7 +92,7 @@ export class Heap<T> {
 
 		if (!first || !second) throw new Error("Index out of range");
 
-		return this.comparator?.(first, second) ?? 1;
+		return this.comparator(first, second);
 	}
 
 	private swap(i: number, j: number) {
