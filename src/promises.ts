@@ -1,18 +1,18 @@
 /**
  * Debounce decorator
- * @param func - Function to debounce.
+ * @param func - The function to debounce.
  * @param delay - Minimum delay in ms between calls.
- * @param lazy - If lazy then every new call to `func` resets the delay timer. Otherwise the function ensures there is at least `delay` ms between calls
+ * @param throttle - When debouncing every new call to `func` resets the delay timer. When throttling the function ensures there is at least `delay` ms between calls
  */
 export function debounce<T extends unknown[], U>(
 	func: (...args: T) => U,
 	delay = 100,
-	lazy = true,
+	throttle = false,
 ) {
 	let timeoutID: number | null;
 
 	function debounced(...args: T) {
-		if (timeoutID && lazy) {
+		if (timeoutID && !throttle) {
 			clearTimeout(timeoutID);
 		}
 
