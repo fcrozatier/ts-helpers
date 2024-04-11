@@ -1,6 +1,6 @@
 {
 	"name": "@fcrozatier/ts-helpers",
-	"version": "0.0.18",
+	"version": "0.0.19",
 	"type": "module",
 	"description": "A collection of convenience ts utilities",
 	"scripts": {
