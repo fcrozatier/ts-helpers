@@ -49,8 +49,8 @@ describe("range", () => {
 	});
 
 	it("accepts 3 arguments", () => {
-		const arr = range(1, 5, 2);
-		const res = [1, 3];
+		const arr = range(1, 6, 2);
+		const res = [1, 3, 5];
 
 		expect(arr.length).toBe(2);
 		for (let index = 0; index < arr.length; index++) {
