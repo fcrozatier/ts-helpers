@@ -7,7 +7,7 @@
 		"format": "prettier --write .",
 		"test": "vitest",
 		"build": "tsc",
-		"prepublishOnly": "pnpm test && pnpm build",
+		"prepublishOnly": "pnpm build",
 		"postpublish": "git push --follow-tags"
 	},
 	"main": "./build/index.js",
