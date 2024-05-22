@@ -35,30 +35,30 @@ export function findIndexAndValue<T>(
 	return found;
 }
 
+type Range =
+	| [stop: number]
+	| [start: number, stop: number]
+	| [start: number, stop: number, step: number];
+
 /**
- * Returns an array of numbers between 0 and `stop` (excluded) in increments of 1
+ * Returns an array of numbers between `start` (defaults to 0) and `stop` (excluded) in increments of `step` (defaults to 1)
  */
-export function range(stop: number): number[];
-/**
- * Returns an array of numbers between `start` and `stop` (excluded) in increments of 1
- */
-export function range(start: number, stop: number): number[];
-/**
- * Returns an array of numbers between `start` and `stop` (excluded) in increments of `step`
- */
-export function range(start: number, stop: number, step: number): number[];
-export function range(startOrStop: number, stop?: number, step?: number) {
-	let start = startOrStop;
-	if (stop !== undefined && step !== undefined) {
-		return Array.from(
-			{ length: (stop - start) / step },
-			(_, i) => start + i * step,
-		);
-	} else if (stop !== undefined) {
-		return Array.from({ length: stop - start }, (_, i) => start + i);
-	} else {
-		const stop = startOrStop;
-		start = 0;
-		return Array.from({ length: stop - start }, (_, i) => start + i);
+export function range(...args: Range) {
+	switch (args.length) {
+		case 1: {
+			const [stop] = args;
+			return Array.from({ length: stop }, (_, i) => i);
+		}
+		case 2: {
+			const [start, stop] = args;
+			return Array.from({ length: stop - start }, (_, i) => start + i);
+		}
+		case 3: {
+			const [start, stop, step] = args;
+			return Array.from(
+				{ length: (stop - start) / step },
+				(_, i) => start + i * step,
+			);
+		}
 	}
 }
