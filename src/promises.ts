@@ -31,5 +31,5 @@ export function debounce<T extends unknown[], U>(
  * Waits `ms` milliseconds
  */
 export function sleep(ms: number) {
-	return new Promise((resolve) => setTimeout(resolve, ms));
+	return new Promise<void>((resolve) => setTimeout(resolve, ms));
 }
