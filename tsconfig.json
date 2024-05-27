@@ -27,16 +27,14 @@
 		"strict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		// "exactOptionalPropertyTypes": true,               /* Interpret optional property types as written, rather than adding 'undefined'. */
-		// "noImplicitReturns": true,
+		"exactOptionalPropertyTypes": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedIndexedAccess": true,
-		"noImplicitOverride": true /* Ensure overriding members in derived classes are marked with an override modifier. */,
-		// "noPropertyAccessFromIndexSignature": true,       /* Enforces using indexed accessors for keys declared using an indexed type. */
+		"noImplicitOverride": true,
 
 		/* Completeness */
 		"skipLibCheck": true
 	},
-	"include": ["src/index.ts", "./src/**/*.ts", "./src/**/*.js"],
+	"include": ["./src/**/*.ts", "./src/**/*.js"],
 	"exclude": ["./node_modules/**"]
 }
