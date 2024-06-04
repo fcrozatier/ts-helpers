@@ -23,8 +23,10 @@ export function isKey<T extends object>(x: T, k: PropertyKey): k is keyof T {
 /**
  * Recursively trim undefined values of an object
  */
-export const trimUndefined = <T extends Record<string, unknown>>(obj?: T) => {
-	if (!obj) return undefined;
+export const trimUndefined = <T extends Record<string, unknown>>(
+	obj?: T,
+): T => {
+	if (!obj) return {} as T;
 
 	const newObj = {} as Record<string, unknown>;
 
@@ -38,5 +40,5 @@ export const trimUndefined = <T extends Record<string, unknown>>(obj?: T) => {
 		}
 	}
 
-	return newObj;
+	return newObj as T;
 };
