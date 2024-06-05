@@ -59,7 +59,9 @@ export const merge = <U extends Record<string, unknown>, T extends U>(
 	target: T,
 	source?: U,
 ) => {
-	if (!source) return target as T & U;
+	const newTarget: T & U = { ...target };
+
+	if (!source) return newTarget;
 
 	for (const [key, val] of Object.entries(source)) {
 		if (val === undefined) continue;
@@ -72,11 +74,11 @@ export const merge = <U extends Record<string, unknown>, T extends U>(
 			type(targetVal) === "object"
 		) {
 			// @ts-ignore
-			target[key] = merge(targetVal, val);
+			newTarget[key] = merge(targetVal, val);
 		} else {
 			// @ts-ignore
-			target[key] = val;
+			newTarget[key] = val;
 		}
 	}
-	return target as T & U;
+	return newTarget;
 };
