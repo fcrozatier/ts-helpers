@@ -42,3 +42,40 @@ export const trimUndefined = <T extends Record<string, unknown>>(
 
 	return newObj as T;
 };
+
+/**
+ * Recursively merges all non undefined properties of target into source and overrides the others
+ *
+ * Useful for merging defaults with user options
+ *
+ * @example
+ * const defaults = {a:1, b: {c: true, d: false}}
+ * const options = {a: undefined, b: {c: false}}
+ * merge(defaults, options) // {a:1, b: {c:false, d: false}}
+ */
+export const merge = <
+	T extends Record<string, unknown>,
+	U extends Record<string, unknown>,
+>(
+	target: T,
+	source: U,
+) => {
+	for (const [key, val] of Object.entries(source)) {
+		if (val === undefined) continue;
+
+		const targetVal = target[key];
+
+		if (
+			key in target &&
+			type(val) === "object" &&
+			type(targetVal) === "object"
+		) {
+			// @ts-ignore
+			target[key] = merge(targetVal, val);
+		} else {
+			// @ts-ignore
+			target[key] = val;
+		}
+	}
+	return target;
+};
