@@ -49,17 +49,16 @@ export const trimUndefined = <T extends Record<string, unknown>>(
  * Useful for merging defaults with user options
  *
  * @example
- * const defaults = {a:1, b: {c: true, d: false}}
- * const options = {a: undefined, b: {c: false}}
+ * const defaults = {a:1, b: {c: true, d: false}} satisfies Options;
+ * const options: Options = {a: undefined, b: {c: false}};
  * merge(defaults, options) // {a:1, b: {c:false, d: false}}
  */
-export const merge = <
-	T extends Record<string, unknown>,
-	U extends Record<string, unknown>,
->(
+export const merge = <U extends Record<string, unknown>, T extends U>(
 	target: T,
-	source: U,
+	source?: U,
 ) => {
+	if (!source) return target as T & U;
+
 	for (const [key, val] of Object.entries(source)) {
 		if (val === undefined) continue;
 
@@ -77,5 +76,5 @@ export const merge = <
 			target[key] = val;
 		}
 	}
-	return target;
+	return target as T & U;
 };

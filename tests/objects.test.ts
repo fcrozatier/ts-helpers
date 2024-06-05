@@ -12,11 +12,14 @@ describe("trimUndefined", () => {
 
 describe("merge", () => {
 	it("merges objects", () => {
-		const target = { a: 1, b: { c: true } };
-		const source = { a: 2, b: { d: false }, e: undefined };
+		type Options = { a?: number; b?: { c?: boolean; d?: boolean }; e?: string };
+
+		const defaults = { a: 1, b: { c: true } } satisfies Options;
+		const options: Options = { a: 2, b: { d: false }, e: undefined };
 
 		const merged = { a: 2, b: { c: true, d: false } };
+		const result = merge(defaults, options);
 
-		expect(merge(target, source)).toStrictEqual(merged);
+		expect(result).toStrictEqual(merged);
 	});
 });
