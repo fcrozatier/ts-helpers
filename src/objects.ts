@@ -44,7 +44,7 @@ export const trimUndefined = <T extends Record<string, unknown>>(
 };
 
 /**
- * Recursively merges all non undefined properties of target into source and overrides the others.
+ * Recursively merges all non undefined properties of source into target and overrides the others, but preserves the getters / setters of the source
  *
  * The target must be a subtype of the source type for this deep merge to make sense on the type level.
  *
@@ -76,8 +76,11 @@ export const merge = <U extends Record<string, unknown>, T extends U>(
 			// @ts-ignore
 			newTarget[key] = merge(targetVal, val);
 		} else {
-			// @ts-ignore
-			newTarget[key] = val;
+			Object.defineProperty(
+				newTarget,
+				key,
+				Object.getOwnPropertyDescriptor(source, key)!,
+			);
 		}
 	}
 	return newTarget;

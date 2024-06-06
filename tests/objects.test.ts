@@ -22,4 +22,29 @@ describe("merge", () => {
 
 		expect(result).toStrictEqual(merged);
 	});
+
+	it("preserves the source's get/set methods", () => {
+		type Options = { a?: boolean };
+		let bind = true;
+
+		const defaults = { a: false } satisfies Options;
+		const options: Options = {
+			get a() {
+				return bind;
+			},
+			set a(v) {
+				bind = v;
+			},
+		};
+
+		const result = merge(defaults, options);
+
+		expect(result.a).toBe(true);
+		expect(Object.getOwnPropertyDescriptor(result, "a")?.set).toBeDefined();
+		expect(Object.getOwnPropertyDescriptor(result, "a")?.get).toBeDefined();
+
+		result.a = false;
+		expect(result.a).toBe(false);
+		expect(bind).toBe(false);
+	});
 });
