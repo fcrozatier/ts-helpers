@@ -19,7 +19,7 @@ export const randomString = (length = 8) => {
  *
  * Default length = 8
  */
-// Turns out this is 30x faster than using Uint8Array.
+// Turns out this is (much) faster than using Uint8Array.
 // [Ref] Benchmark in tests/benchmark/nano.js
 // node tests/benchmark/nano.js
 export const nanoId = randomString;

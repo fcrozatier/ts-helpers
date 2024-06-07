@@ -1,3 +1,5 @@
+// node tests/benchmark/nano.js
+
 const alphabet =
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz0123456789-";
 
@@ -26,12 +28,12 @@ const N = 1_000_000;
 
 console.time("random");
 for (let index = 0; index < N; index++) {
-	index % 2 == 0 ? randomString(index % 10) : randomString((index % 10) + 3);
+	randomString();
 }
 console.timeEnd("random");
 
 console.time("nano");
 for (let index = 0; index < N; index++) {
-	index % 2 == 0 ? nanoId(index % 10) : nanoId((index % 10) + 3);
+	nanoId();
 }
 console.timeEnd("nano");
