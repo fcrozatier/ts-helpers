@@ -7,3 +7,4 @@ export * from "./promises.js";
 export * from "./random.js";
 export * from "./sets.js";
 export * from "./strings.js";
+export * from "./type.js";

@@ -24,7 +24,8 @@
 		"./promises": "./build/promises.js",
 		"./random": "./build/random.js",
 		"./sets": "./build/sets.js",
-		"./strings": "./build/strings.js"
+		"./strings": "./build/strings.js",
+		"./type": "./build/type.js"
 	},
 	"keywords": [
 		"utilities",
