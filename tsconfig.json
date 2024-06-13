@@ -1,8 +1,5 @@
 {
 	"compilerOptions": {
-		/* Language and Environment */
-		"target": "ESNext",
-
 		/* Modules */
 		"module": "NodeNext",
 		"resolveJsonModule": true,
@@ -19,7 +16,6 @@
 		/* Interop Constraints */
 		"verbatimModuleSyntax": true,
 		"allowSyntheticDefaultImports": true,
-		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 
 		/* Type Checking */
