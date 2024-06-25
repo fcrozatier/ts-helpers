@@ -11,7 +11,7 @@ export function round(value: number, decimalPlaces = 0) {
  * Returns `n` modulo `d`
  *
  * The modulo operator has the same sign as the divisor `d` whereas the remainder n % d has
- * the same size as the dividend `n`
+ * the same sign as the dividend `n`
  *
  * @example
  * ```ts
