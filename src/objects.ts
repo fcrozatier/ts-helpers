@@ -59,7 +59,7 @@ export const merge = <U extends Record<string, unknown>, T extends U>(
 	target: T,
 	source?: U,
 ) => {
-	const newTarget: T & U = { ...target };
+	const newTarget: T & U = structuredClone(target);
 
 	if (!source) return newTarget;
 

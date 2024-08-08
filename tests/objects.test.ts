@@ -23,6 +23,24 @@ describe("merge", () => {
 		expect(result).toStrictEqual(merged);
 	});
 
+	it("deep clones target but not source", () => {
+		type Options = {
+			a: number[];
+			b?: { c?: boolean; d?: boolean };
+			e?: string;
+		};
+
+		const defaults = { a: [], b: { c: true } } satisfies Options;
+		const options: Options = { a: [], b: { d: false }, e: undefined };
+		const result = merge(defaults, options);
+
+		result.a.push(1);
+
+		expect(result.a.length).toBe(1);
+		expect(defaults.a.length).toBe(0);
+		expect(options.a.length).toBe(1);
+	});
+
 	it("preserves the source's get/set methods", () => {
 		type Options = { a?: boolean };
 		let bind = true;
