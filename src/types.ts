@@ -65,8 +65,8 @@ export function type(value: unknown): Types {
 	return baseType;
 }
 
-export type OmitX<T, K extends keyof T> = {
+export type StrictOmit<T, K extends keyof T> = {
 	[P in keyof T as Exclude<P, K>]: T[P];
 };
 
-export type ExtractX<T, U extends T> = T extends U ? T : never;
+export type StrictExtract<T, U extends T> = T extends U ? T : never;
