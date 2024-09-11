@@ -1,4 +1,4 @@
-import { type } from "./type.js";
+import { type } from "./types.js";
 
 /**
  * `Object.keys` with narrower types
