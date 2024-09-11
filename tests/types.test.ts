@@ -1,7 +1,5 @@
-import { describe, test } from "vitest";
-import { expect } from "vitest";
-import { it } from "vitest";
-import { type } from "../src/type";
+import { describe, expect, it, test } from "vitest";
+import { type } from "../src/types";
 
 describe("type", () => {
 	it("discriminates types", () => {
