@@ -7,7 +7,7 @@ describe("capitalize", () => {
 		["a", "A"],
 		["so", "So"],
 		["choco", "Choco"],
-	])("capitalize test case", (before, after) => {
+	])(`capitalize %`, (before, after) => {
 		expect(capitalize(before)).toBe(after);
 	});
 });
