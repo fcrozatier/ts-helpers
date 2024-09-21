@@ -24,6 +24,9 @@ export const randomString = (length = 8) => {
 // node tests/benchmark/nano.js
 export const nanoId = randomString;
 
+/**
+ * Note: can be achieved in CSS with `text-transform: capitalize`
+ */
 export const capitalize = (str: string) => {
 	return str.slice(0, 1).toUpperCase() + str.slice(1);
 };
