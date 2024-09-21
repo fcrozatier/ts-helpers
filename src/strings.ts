@@ -23,3 +23,7 @@ export const randomString = (length = 8) => {
 // [Ref] Benchmark in tests/benchmark/nano.js
 // node tests/benchmark/nano.js
 export const nanoId = randomString;
+
+export const capitalize = (str: string) => {
+	return str.slice(0, 1).toUpperCase() + str.slice(1);
+};
