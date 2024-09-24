@@ -10,18 +10,23 @@ export function debounce<T extends unknown[], U>(
 	throttle = false,
 ) {
 	let timeoutID: number | null;
+	let promise: Promise<U>;
 
 	function debounced(...args: T) {
 		if (timeoutID && !throttle) {
 			clearTimeout(timeoutID);
+		} else if (timeoutID && throttle) {
+			return promise;
 		}
 
-		return new Promise<U>((resolve) => {
+		promise = new Promise<U>((resolve) => {
 			timeoutID = setTimeout(() => {
 				timeoutID = null;
 				resolve(func(...args));
 			}, delay);
 		});
+
+		return promise;
 	}
 
 	return debounced;
