@@ -70,3 +70,5 @@ export type StrictOmit<T, K extends keyof T> = {
 };
 
 export type StrictExtract<T, U extends T> = T extends U ? T : never;
+
+export type Timeout = ReturnType<typeof setTimeout>;
