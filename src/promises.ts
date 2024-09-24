@@ -1,3 +1,5 @@
+import type { Timeout } from "./types.js";
+
 /**
  * Debounce decorator
  * @param func The function to debounce.
@@ -30,6 +32,62 @@ export function debounce<T extends unknown[], U>(
 	}
 
 	return debounced;
+}
+
+export class Debounce<T extends unknown[], U> {
+	delay: number;
+	throttle: boolean;
+	fn: (...args: T) => U;
+
+	timeoutID!: Timeout | null;
+	#promise!: Promise<U>;
+
+	#debounced: (...args: T) => Promise<U>;
+
+	constructor(options: {
+		fn: (...args: T) => U;
+		delay?: number;
+		throttle?: boolean;
+	}) {
+		this.fn = options.fn;
+		this.delay = options.delay ?? 100;
+		this.throttle = options.throttle ?? false;
+
+		this.#debounced = this.makeDebounced();
+	}
+
+	makeDebounced = () => {
+		return (...args: T) => {
+			if (this.timeoutID && this.throttle) {
+				return this.#promise;
+			}
+
+			if (this.timeoutID && !this.throttle) {
+				clearTimeout(this.timeoutID);
+				this.timeoutID = null;
+			}
+
+			this.#promise = new Promise<U>((resolve) => {
+				this.timeoutID = setTimeout(() => {
+					this.timeoutID = null;
+					resolve(this.fn(...args));
+				}, this.delay);
+			});
+
+			return this.#promise;
+		};
+	};
+
+	get debounced() {
+		return this.#debounced;
+	}
+
+	flush = () => {
+		if (this.timeoutID) {
+			clearTimeout(this.timeoutID);
+		}
+		this.#debounced = this.makeDebounced();
+	};
 }
 
 /**
