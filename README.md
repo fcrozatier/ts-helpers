@@ -80,14 +80,14 @@ queue.dequeue(); // Zack
 
 ## Numbers
 
-- `round(value: number, decimalPlaces = 0)`: Rounds `value` toa precision of `decimalPlaces`.
-By default returns `value` rounded to the nearest integer
+- `round`: Rounds a value to a given precision. By default rounds to the nearest integer
 
 ```js
 round(Math.PI, 2) // 3.14
 ```
 
 - `modulo(n: number, d: number)`: Computes `n` modulo `d`.
+
 Note: the modulo operator has the same sign as the divisor `d` whereas the remainder `n % d` has
 the same sign as the dividend `n`
 
@@ -95,8 +95,6 @@ the same sign as the dividend `n`
 modulo(-1, 3); // 2
 -1 % 3;  // -1
 ```
-
-## Objects
 
 ## Promises
 
@@ -144,7 +142,7 @@ areSetsEqual(s1, s2); // true
 
 ## Strings
 
-- `randomString`: Creates a random string of a given length in the alphabet [a-zA-Z0-9_-] (64 characters)
+- `randomString`: Creates a random string of a given length in the alphabet `[a-zA-Z0-9_-]` (64 characters)
 
 ```js
 randomString(8); // TNxOLDho
@@ -164,7 +162,7 @@ capitalize("capitalized") // "Capitalized"
 
 ## Types
 
-- `type`: Returns a string representation of the type of an object more precise type than `typeof`.
+- `type`: Returns a string representation of the type of an object and is more precise than `typeof`.
 
 ```js
 // null / undefined types
