@@ -1,14 +1,14 @@
 /**
- * Returns the sum of an array of numbers
- * By default the result is 0 on an empty array
+ * Calculates the sum of an array of numbers.
+ * Returns 0 if the array is empty
  */
 export function sum(array: number[]) {
 	return array.reduce((p, c) => p + c, 0);
 }
 
 /**
- * Returns the mean of an array of number.
- * By default the mean of an empty array is 0
+ * Computes the mean of an array of number.
+ * Returns 0 if the array is empty
  */
 export function mean(array: number[]) {
 	if (array.length === 0) return 0;
@@ -16,7 +16,7 @@ export function mean(array: number[]) {
 }
 
 /**
- * Finds a value in an array given a predicate, and return the value and its index
+ * Finds a value in an array given a predicate, and returns the value and its index
  */
 export function findIndexAndValue<T>(
 	arr: T[],
@@ -41,7 +41,7 @@ type Range =
 	| [start: number, stop: number, step: number];
 
 /**
- * Returns an array of numbers between `start` (defaults to 0) and `stop` (excluded) in increments of `step` (defaults to 1)
+ * Makes an array of numbers between `start` (defaults to 0) and `stop` (excluded) in increments of `step` (defaults to 1)
  */
 export function range(...args: Range) {
 	switch (args.length) {
