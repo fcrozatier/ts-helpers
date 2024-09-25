@@ -25,6 +25,8 @@ export const randomString = (length = 8) => {
 export const nanoId = randomString;
 
 /**
+ * Turns the first letter of a string to uppercase
+ *
  * Note: can be achieved in CSS with `text-transform: capitalize`
  */
 export const capitalize = (str: string) => {
