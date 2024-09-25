@@ -10,13 +10,13 @@ export function round(value: number, decimalPlaces = 0) {
 /**
  * Returns `n` modulo `d`
  *
- * The modulo operator has the same sign as the divisor `d` whereas the remainder n % d has
+ * The modulo operator has the same sign as the divisor `d` whereas the remainder `n % d` has
  * the same sign as the dividend `n`
  *
  * @example
  * ```ts
- * modulo(-1,3); //2
- * -1 % 3;  //-1
+ * modulo(-1,3); // 2
+ * -1 % 3;  // -1
  * ```
  */
 export function modulo(n: number, d: number) {
