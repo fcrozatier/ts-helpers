@@ -108,7 +108,7 @@ export type StructuredCloneValue =
 	| BigInt64Array
 	| BigUint64Array
 	// API types
-	| AudioData
+	// | AudioData // Cannot find name 'AudioData'.?
 	| Blob
 	| CryptoKey
 	| DOMException
