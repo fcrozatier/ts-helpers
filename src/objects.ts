@@ -23,24 +23,18 @@ export function isKey<T extends object>(x: T, k: PropertyKey): k is keyof T {
 /**
  * Recursively trim undefined values of an object
  */
-export const trimUndefined = <T extends Record<string, unknown>>(
-	obj?: T,
-): T => {
-	if (!obj) return {} as T;
-
-	const newObj = {} as Record<string, unknown>;
+export const trimUndefined = <T extends Record<string, unknown>>(obj?: T) => {
+	if (!obj) return obj;
 
 	for (const [key, val] of Object.entries(obj)) {
-		if (val === undefined) continue;
-
-		if (type(val) === "object") {
-			newObj[key] = trimUndefined(val as Record<string, unknown>);
-		} else {
-			newObj[key] = val;
+		if (val === undefined) {
+			delete obj[key];
+		} else if (type(val) === "object" && val) {
+			trimUndefined(val as Record<string, unknown>);
 		}
 	}
 
-	return newObj as T;
+	return obj;
 };
 
 /**
@@ -55,11 +49,8 @@ export const trimUndefined = <T extends Record<string, unknown>>(
  * const options: Options = {a: undefined, b: {c: false}};
  * merge(defaults, options) // {a:1, b: {c:false, d: false}}
  */
-export const merge = <
-	U extends Record<string, unknown>,
-	T extends Partial<U> & StructuredCloneValue,
->(
-	target: T,
+export const merge = <U extends Record<string, unknown>, T extends Partial<U>>(
+	target: T & StructuredCloneValue & Record<string, unknown>,
 	source?: U,
 ) => {
 	const newTarget = structuredClone(target) as T & U;
