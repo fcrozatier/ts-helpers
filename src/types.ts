@@ -72,3 +72,64 @@ export type StrictOmit<T, K extends keyof T> = {
 export type StrictExtract<T, U extends T> = T extends U ? T : never;
 
 export type Timeout = ReturnType<typeof setTimeout>;
+
+export type StructuredCloneValue =
+	// Primitive types except symbol
+	| null
+	| undefined
+	| boolean
+	| string
+	| number
+	| BigInt
+	// Complex types
+	| Date
+	| RegExp
+	| ArrayBuffer
+	| DataView
+	// Error types
+	| Error
+	| EvalError
+	| RangeError
+	| ReferenceError
+	| SyntaxError
+	| TypeError
+	| URIError
+	| AggregateError
+	// Typed arrays
+	| Int8Array
+	| Uint8Array
+	| Uint8ClampedArray
+	| Int16Array
+	| Uint16Array
+	| Int32Array
+	| Uint32Array
+	| Float32Array
+	| Float64Array
+	| BigInt64Array
+	| BigUint64Array
+	// API types
+	| AudioData
+	| Blob
+	| CryptoKey
+	| DOMException
+	| DOMMatrix
+	| DOMMatrixReadOnly
+	| DOMPoint
+	| DOMPointReadOnly
+	| DOMQuad
+	| DOMRect
+	| DOMRectReadOnly
+	| File
+	| FileList
+	| FileSystemDirectoryHandle
+	| FileSystemFileHandle
+	| FileSystemHandle
+	| ImageBitmap
+	| ImageData
+	| RTCCertificate
+	| VideoFrame
+	// Generic types
+	| Map<StructuredCloneValue, StructuredCloneValue>
+	| Set<StructuredCloneValue>
+	| StructuredCloneValue[]
+	| { [key: string]: StructuredCloneValue };

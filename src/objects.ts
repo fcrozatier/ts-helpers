@@ -1,4 +1,4 @@
-import { type } from "./types.js";
+import { type, type StructuredCloneValue } from "./types.js";
 
 /**
  * `Object.keys` with narrower types
@@ -55,7 +55,10 @@ export const trimUndefined = <T extends Record<string, unknown>>(
  * const options: Options = {a: undefined, b: {c: false}};
  * merge(defaults, options) // {a:1, b: {c:false, d: false}}
  */
-export const merge = <U extends Record<string, unknown>, T extends U>(
+export const merge = <
+	U extends Record<string, unknown>,
+	T extends U & StructuredCloneValue,
+>(
 	target: T,
 	source?: U,
 ) => {

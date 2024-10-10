@@ -197,3 +197,5 @@ type(class Dog {}); // "class"
 - `StrictExtract<T, U extends T>`: Utility type similar to `Extract` with constrained keys for stricter types
 
 - `Timeout`: Return type of `setTimeout`
+
+- `StructuredCloneValue`: allowable values for the `structuredClone` function
