@@ -23,6 +23,17 @@ describe("merge", () => {
 		expect(result).toStrictEqual(merged);
 	});
 
+	it("merges functions", () => {
+		type Options = { a?: number; b: () => boolean };
+
+		const defaults = { a: 1 } satisfies Omit<Options, "b">;
+		const options: Options = { a: 2, b: () => false };
+
+		const result = merge(defaults, options);
+
+		expect(result.b()).toStrictEqual(false);
+	});
+
 	it("deep clones target but not source", () => {
 		type Options = {
 			a: number[];
