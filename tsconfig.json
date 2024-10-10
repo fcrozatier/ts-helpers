@@ -26,6 +26,7 @@
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedIndexedAccess": true,
 		"noImplicitOverride": true,
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
 
 		/* Completeness */
 		"skipLibCheck": true
