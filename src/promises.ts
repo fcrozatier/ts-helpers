@@ -11,7 +11,7 @@ export function debounce<T extends unknown[], U>(
 	delay = 100,
 	throttle = false,
 ) {
-	let timeoutID: number | null;
+	let timeoutID: Timeout | null;
 	let promise: Promise<U>;
 
 	function debounced(...args: T) {
@@ -64,7 +64,6 @@ export class Debounce<T extends unknown[], U> {
 
 			if (this.timeoutID && !this.throttle) {
 				clearTimeout(this.timeoutID);
-				this.timeoutID = null;
 			}
 
 			this.#promise = new Promise<U>((resolve) => {
@@ -85,6 +84,7 @@ export class Debounce<T extends unknown[], U> {
 	flush = () => {
 		if (this.timeoutID) {
 			clearTimeout(this.timeoutID);
+			this.timeoutID = null;
 		}
 		this.#debounced = this.makeDebounced();
 	};
