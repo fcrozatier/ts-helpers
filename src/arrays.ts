@@ -62,3 +62,10 @@ export function range(...args: RangeOptions) {
 		}
 	}
 }
+
+/**
+ * Checks whether two arrays have the same elements
+ */
+export const areArraysEquivalent = (arr1: unknown[], arr2: unknown[]) => {
+	return arr1.length === arr2.length && arr1.every((el) => arr2.includes(el));
+};

@@ -1,5 +1,16 @@
 # The missing js and ts helpers
 
+- [The missing js and ts helpers](#the-missing-js-and-ts-helpers)
+  - [Arrays](#arrays)
+  - [Functions](#functions)
+  - [Heap](#heap)
+  - [Numbers](#numbers)
+  - [Promises](#promises)
+  - [Random](#random)
+  - [Sets](#sets)
+  - [Strings](#strings)
+  - [Types](#types)
+
 ## Arrays
 
 - `sum`: Calculates the sum of an array of numbers. Returns 0 if the array is empty.
@@ -28,6 +39,12 @@ findIndexAndValue(fruits, (f) => f === "peach") // {index: 1, value: "peach"}
 range(3) // [0,1,2]
 range(1,3) // [1,2]
 range(1,6,2) // [1,3,5]
+```
+
+- `areArraysEquivalent`: Checks whether two arrays have the same elements
+
+```js
+areArraysEquivalent([1, 2, 3], [3, 2, 1]) // true;
 ```
 
 ## Functions

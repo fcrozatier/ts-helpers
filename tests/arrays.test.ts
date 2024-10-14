@@ -1,7 +1,10 @@
-import { findIndexAndValue, range, sum } from "../src/arrays";
-import { describe } from "vitest";
-import { expect } from "vitest";
-import { it } from "vitest";
+import { describe, expect, it } from "vitest";
+import {
+	areArraysEquivalent,
+	findIndexAndValue,
+	range,
+	sum,
+} from "../src/arrays";
 
 describe("sum", () => {
 	it("returns 0 for an empty array", () => {
@@ -56,5 +59,13 @@ describe("range", () => {
 		for (let index = 0; index < arr.length; index++) {
 			expect(arr[index]).toBe(res[index]);
 		}
+	});
+});
+
+describe("areArraysEquivalent", () => {
+	it("checks array equivalence", () => {
+		expect(areArraysEquivalent([1, 2, 3], [3, 2, 1])).toBe(true);
+		expect(areArraysEquivalent([1, 2, 3], [3, 5, 1])).toBe(false);
+		expect(areArraysEquivalent([1, 2, 3], [3, 3, 1, 2])).toBe(false);
 	});
 });
