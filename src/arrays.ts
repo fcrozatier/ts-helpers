@@ -35,7 +35,7 @@ export function findIndexAndValue<T>(
 	return found;
 }
 
-type Range =
+type RangeOptions =
 	| [stop: number]
 	| [start: number, stop: number]
 	| [start: number, stop: number, step: number];
@@ -43,7 +43,7 @@ type Range =
 /**
  * Makes an array of numbers between `start` (defaults to 0) and `stop` (excluded) in increments of `step` (defaults to 1)
  */
-export function range(...args: Range) {
+export function range(...args: RangeOptions) {
 	switch (args.length) {
 		case 1: {
 			const [stop] = args;
