@@ -65,10 +65,41 @@ export function type(value: unknown): Types {
 	return baseType;
 }
 
+/**
+ * Utility to prettify types by ensuring type expansion
+ */
+export type Prettify<T> = {
+	[K in keyof T]: T[K];
+} & {};
+
+/**
+ * Require only certain keys of T
+ */
+export type Required<T, K extends keyof T> = Prettify<
+	{
+		[P in keyof T as P extends K ? P : never]-?: T[P];
+	} & Omit<T, K>
+>;
+
+/**
+ * Partial on specific keys of T
+ */
+export type Partial<T, K extends keyof T> = Prettify<
+	{
+		[P in keyof T as P extends K ? P : never]?: T[P];
+	} & Omit<T, K>
+>;
+
+/**
+ * `Omit` with constrained keys
+ */
 export type StrictOmit<T, K extends keyof T> = {
 	[P in keyof T as Exclude<P, K>]: T[P];
 };
 
+/**
+ * `Extract` with constrained keys
+ */
 export type StrictExtract<T, U extends T> = T extends U ? T : never;
 
 export type Timeout = ReturnType<typeof setTimeout>;

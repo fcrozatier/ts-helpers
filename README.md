@@ -209,9 +209,15 @@ type(() => 1); // "function"
 type(class Dog {}); // "class"
 ```
 
-- `StrictOmit<T, K extends keyof T>`: Utility type similar to `Omit` with constrained keys for stricter types.
+- `Prettify<T>`: Prettify types by ensuring type expansion
 
-- `StrictExtract<T, U extends T>`: Utility type similar to `Extract` with constrained keys for stricter types
+- `Required<T, K extends keyof T>`: Require only a specific subset of keys of `T`
+
+- `Partial<T, K extends keyof T>`: Partial on specific keys of `T`
+
+- `StrictOmit<T, K extends keyof T>`: `Omit` with constrained keys
+
+- `StrictExtract<T, U extends T>`: `Extract` with constrained keys
 
 - `Timeout`: Return type of `setTimeout`
 
