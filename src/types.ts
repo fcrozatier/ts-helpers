@@ -70,7 +70,7 @@ export function type(value: unknown): Types {
  */
 export type Prettify<T> = {
 	[K in keyof T]: T[K];
-} & {};
+};
 
 /**
  * Require only certain keys of T
