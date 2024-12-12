@@ -5,6 +5,7 @@
   - [Functions](#functions)
   - [Heap](#heap)
   - [Numbers](#numbers)
+  - [Objects](#objects)
   - [Promises](#promises)
   - [Random](#random)
   - [Sets](#sets)
@@ -111,6 +112,20 @@ the same sign as the dividend `n`
 ```js
 modulo(-1, 3); // 2
 -1 % 3;  // -1
+```
+
+## Objects
+
+- `merge`: Type-safe `Object.assign`
+
+```ts
+const m = merge(
+  { foo: 123 },
+  { foo: "abc", bar: 123 },
+  { foo: true, baz: "abc" }
+)
+
+typeof m // { foo: boolean; bar: number; baz: string }
 ```
 
 ## Promises

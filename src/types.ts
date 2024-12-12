@@ -66,11 +66,11 @@ export function type(value: unknown): Types {
 }
 
 /**
- * Utility to prettify types by ensuring type expansion
+ * Utility to prettify types (intersections etc) by ensuring type expansion
  */
 export type Prettify<T> = {
 	[K in keyof T]: T[K];
-};
+} & {};
 
 /**
  * Require only certain keys of T
