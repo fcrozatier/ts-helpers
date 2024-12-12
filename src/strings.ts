@@ -1,3 +1,5 @@
+import { regexEscape } from "./regex.js";
+
 const alphabet =
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz0123456789-";
 
@@ -31,4 +33,20 @@ export const nanoId = randomString;
  */
 export const capitalize = (str: string) => {
 	return str.slice(0, 1).toUpperCase() + str.slice(1);
+};
+
+export const trim = (str: string, char: string) => {
+  const escaped = regexEscape(char);
+  const regex = new RegExp(`^${escaped}+|${escaped}+$`, "g");
+  return str.replace(regex, "");
+};
+export const trimEnd = (str: string, char: string) => {
+  const escaped = regexEscape(char);
+  const regex = new RegExp(`${escaped}+$`, "g");
+  return str.replace(regex, "");
+};
+export const trimStart = (str: string, char: string) => {
+  const escaped = regexEscape(char);
+  const regex = new RegExp(`^${escaped}+`, "g");
+  return str.replace(regex, "");
 };

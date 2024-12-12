@@ -8,6 +8,7 @@
   - [Objects](#objects)
   - [Promises](#promises)
   - [Random](#random)
+  - [Regex](#regex)
   - [Sets](#sets)
   - [Strings](#strings)
   - [Types](#types)
@@ -161,6 +162,15 @@ arr.length; // 1
 randint(0, 5) // 2
 ```
 
+## Regex
+
+- `regexEscape`: escape special Regex characters
+
+```js
+regexEscape(".") // \.
+regexEscape("(*.*)") // \(\*\.\*\)
+```
+
 ## Sets
 
 - `areSetsEqual`: checks whether two sets are equal
@@ -190,6 +200,14 @@ nanoId(); // b6eKfYLB
 
 ```js
 capitalize("capitalized") // "Capitalized"
+```
+
+- `trim`, `trimStart`, `trimEnd`: trim (regex escaped) characters (substring) from a string
+
+```js
+trim("--dashes-", "-") // "dashes"
+trimEnd("ellipsis...", ".") // "ellipsis"
+
 ```
 
 ## Types
