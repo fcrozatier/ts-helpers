@@ -23,6 +23,7 @@
 		"./objects": "./build/objects.js",
 		"./promises": "./build/promises.js",
 		"./random": "./build/random.js",
+		"./regex": "./build/regex.js",
 		"./sets": "./build/sets.js",
 		"./strings": "./build/strings.js",
 		"./type": "./build/type.js"
