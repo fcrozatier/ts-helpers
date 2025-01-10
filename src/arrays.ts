@@ -69,3 +69,19 @@ export function range(...args: RangeOptions) {
 export const areArraysEquivalent = (arr1: unknown[], arr2: unknown[]) => {
 	return arr1.length === arr2.length && arr1.every((el) => arr2.includes(el));
 };
+
+/**
+ * Zips arrays of the same length
+ *
+ * @example let zipped = zip([1,2], ['a','b']);
+ * zipped; // [[1, 'a'], [2, 'b']]
+ */
+export const zip = <T, U>(array1: T[], array2: U[]): [T, U][] => {
+	if (array1.length !== array2.length) {
+		throw new Error("zip: arrays must have the same size");
+	}
+
+	return array1.map((a, i) => {
+		return [a, array2[i]!];
+	});
+};

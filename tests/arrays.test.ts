@@ -4,6 +4,7 @@ import {
 	findIndexAndValue,
 	range,
 	sum,
+	zip,
 } from "../src/arrays";
 
 describe("sum", () => {
@@ -67,5 +68,11 @@ describe("areArraysEquivalent", () => {
 		expect(areArraysEquivalent([1, 2, 3], [3, 2, 1])).toBe(true);
 		expect(areArraysEquivalent([1, 2, 3], [3, 5, 1])).toBe(false);
 		expect(areArraysEquivalent([1, 2, 3], [3, 3, 1, 2])).toBe(false);
+	});
+});
+
+describe("zip", () => {
+	it("zips arrays", () => {
+		expect(zip([1, 2], ["a", "b"])).toEqual([[1, "a"], [2, "b"]]);
 	});
 });

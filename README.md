@@ -48,6 +48,11 @@ range(1,6,2) // [1,3,5]
 ```js
 areArraysEquivalent([1, 2, 3], [3, 2, 1]) // true;
 ```
+- `zip`: Zips arrays of the same length
+
+```js
+zip([1,2], ['a','b']); // [[1, 'a'], [2, 'b']]
+```
 
 ## Functions
 
