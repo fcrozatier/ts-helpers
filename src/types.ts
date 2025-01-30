@@ -68,9 +68,11 @@ export function type(value: unknown): Types {
 /**
  * Utility to prettify types (intersections etc) by ensuring type expansion
  */
-export type Prettify<T> = {
-	[K in keyof T]: T[K];
-} & {};
+export type Prettify<T> =
+	& {
+		[K in keyof T]: T[K];
+	}
+	& {};
 
 /**
  * Require only certain keys of T
@@ -103,6 +105,19 @@ export type StrictOmit<T, K extends keyof T> = {
 export type StrictExtract<T, U extends T> = T extends U ? T : never;
 
 export type Timeout = ReturnType<typeof setTimeout>;
+
+// https://github.com/Microsoft/TypeScript/issues/27024
+export type Equals<X, Y> = (<T>() => T extends X ? 1 : 0) extends
+	<U>() => U extends Y ? 1 : 0 ? true : false;
+
+export type ReadOnlyKeys<T> = {
+	[K in keyof T]:
+		Equals<{ [P in K]: T[K] }, { readonly [P in K]: T[K] }> extends true ? K
+			: never;
+}[keyof T];
+
+export type IsReadOnlyObject<T> = keyof T extends ReadOnlyKeys<T> ? true
+	: false;
 
 export type StructuredCloneValue =
 	// Primitive types except symbol

@@ -122,6 +122,16 @@ modulo(-1, 3); // 2
 
 ## Objects
 
+- `keys`: Type-safe `Object.keys` for `readonly` objects
+
+```ts
+const mutableObject = { a: 'A', b: 'B' };
+keys(mutableObject); // type string[]
+
+const readonlyObject = { a: 'A', b: 'B' } as const;
+keys(readonlyObject); // type ('a'|'b')[]
+```
+
 - `merge`: Type-safe `Object.assign`
 
 ```ts

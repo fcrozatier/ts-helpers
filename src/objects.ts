@@ -1,11 +1,22 @@
-import { type, type Prettify } from "./types.js";
+import { type IsReadOnlyObject, type Prettify, type } from "./types.js";
 
 /**
- * `Object.keys` with narrower types
+ * Type-safe `Object.keys` for readonly objects
+ *
+ * @example
+ *
+ * ```ts
+ * const mutableObject = { a: 'A', b: 'B' };
+ * keys(mutableObject); // type string[]
+ *
+ * const readonlyObject = { a: 'A', b: 'B' } as const;
+ * keys(readonlyObject); // type ('a'|'b')[]
+ * ```
  */
 export const keys = Object.keys as <T>(
 	o: T,
-) => Extract<keyof T, string | number>[];
+) => true extends IsReadOnlyObject<T> ? Extract<keyof T, PropertyKey>[]
+	: string[];
 
 /**
  * Type predicate for narrowing a string to be used to index an object
@@ -42,8 +53,7 @@ type Merge<T1, T2> = Prettify<Omit<T1, keyof T2> & T2>;
 type MergeArrayOfObjects<T extends readonly object[], T1 = {}> = T extends [
 	infer T2 extends object,
 	...infer Rest extends object[],
-]
-	? MergeArrayOfObjects<Rest, Merge<T1, T2>>
+] ? MergeArrayOfObjects<Rest, Merge<T1, T2>>
 	: T1;
 
 /**
