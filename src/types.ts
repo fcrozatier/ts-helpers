@@ -11,6 +11,7 @@ type Types = LooseAutocomplete<
 	| "string"
 	| "symbol"
 	| "function"
+	| "AsyncFunction"
 	| "class"
 	| "array"
 	| "date"
@@ -66,7 +67,7 @@ export function type(value: unknown): Types {
 }
 
 /**
- * Utility to prettify types (intersections etc) by ensuring type expansion
+ * Prettifies types (intersections etc) by ensuring type expansion
  */
 export type Prettify<T> =
 	& {
@@ -75,7 +76,7 @@ export type Prettify<T> =
 	& {};
 
 /**
- * Require only certain keys of T
+ * Requires only certain keys of T
  */
 export type Required<T, K extends keyof T> = Prettify<
 	{
