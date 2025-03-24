@@ -2,7 +2,7 @@ import { describe, expect, it, test } from "vitest";
 import { type } from "../src/types";
 
 describe("type", () => {
-	it.skip("discriminates types", () => {
+	it("discriminates types", () => {
 		// null / undefined types
 		expect(type(null)).toBe("null");
 		expect(type(undefined)).toBe("undefined");
