@@ -27,6 +27,7 @@ describe("type", () => {
 
 		// function type
 		expect(type(() => 1)).toBe("function");
+		expect(type(async () => 1)).toBe("AsyncFunction");
 		expect(type(class Dog {})).toBe("class");
 	});
 });
