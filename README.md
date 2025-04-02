@@ -265,6 +265,8 @@ type(class Dog {}); // "class"
 
 - `StrictOmit<T, K extends keyof T>`: `Omit` with constrained keys
 
+- `StrictExclude<T, U extends T>`: `Exclude` with constrained keys
+
 - `StrictExtract<T, U extends T>`: `Extract` with constrained keys
 
 - `Timeout`: Return type of `setTimeout`

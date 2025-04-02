@@ -101,6 +101,17 @@ export type StrictOmit<T, K extends keyof T> = {
 };
 
 /**
+ * `Exclude` with constrained keys
+ *
+ * @example
+ *
+ * type Fruits =	"apple" | "banana"| "cherry";
+ *
+ * type A = StrictExclude<Fruits, "apple">;
+ */
+export type StrictExclude<T, K extends T> = T extends K ? never : T;
+
+/**
  * `Extract` with constrained keys
  */
 export type StrictExtract<T, U extends T> = T extends U ? T : never;
