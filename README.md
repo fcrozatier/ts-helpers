@@ -179,6 +179,12 @@ arr.length; // 1
 randint(0, 5); // 2
 ```
 
+- `randomItem(items: T[])`: Returns a random element from a collection
+
+```js
+randomItem([1,2,3]); // 3
+```
+
 ## Regex
 
 - `regexEscape`: escape special Regex characters
