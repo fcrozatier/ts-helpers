@@ -18,40 +18,41 @@
 - `sum`: Calculates the sum of an array of numbers. Returns 0 if the array is empty.
 
 ```js
-sum([1,2,3]) // 6
+sum([1, 2, 3]); // 6
 ```
 
-- `mean`: Computes the mean of an array of number.  Returns 0 if the array is empty
+- `mean`: Computes the mean of an array of number. Returns 0 if the array is empty
 
 ```js
-mean([1,2,3]) // 2
+mean([1, 2, 3]); // 2
 ```
 
 - `findIndexAndValue`: Finds a value in an array given a predicate, and returns an object with the value and its index
 
 ```js
-const fruits = ["banana", "peach", "strawberry"	];
+const fruits = ["banana", "peach", "strawberry"];
 
-findIndexAndValue(fruits, (f) => f === "peach") // {index: 1, value: "peach"}
+findIndexAndValue(fruits, (f) => f === "peach"); // {index: 1, value: "peach"}
 ```
 
 - `range`: Creates an array of numbers between `start` (defaults to 0) and `stop` (excluded) in increments of `step` (defaults to 1)
 
 ```js
-range(3) // [0,1,2]
-range(1,3) // [1,2]
-range(1,6,2) // [1,3,5]
+range(3); // [0,1,2]
+range(1, 3); // [1,2]
+range(1, 6, 2); // [1,3,5]
 ```
 
 - `areArraysEquivalent`: Checks whether two arrays have the same elements
 
 ```js
-areArraysEquivalent([1, 2, 3], [3, 2, 1]) // true;
+areArraysEquivalent([1, 2, 3], [3, 2, 1]); // true;
 ```
+
 - `zip`: Zips arrays of the same length
 
 ```js
-zip([1,2], ['a','b']); // [[1, 'a'], [2, 'b']]
+zip([1, 2], ["a", "b"]); // [[1, 'a'], [2, 'b']]
 ```
 
 ## Functions
@@ -76,6 +77,7 @@ A fast priority queue / heap implementation, with `O(nlog(n))` complexity.
 The constructor takes a comparator function.
 
 Public fields:
+
 - `size`: (number) the size of the heap
 - `isEmpty`: (boolean) whether the heap is empty
 - `enqueue`: adds an element to the queue and prioritizes it
@@ -107,7 +109,7 @@ queue.dequeue(); // Zack
 - `round`: Rounds a value to a given precision. By default rounds to the nearest integer
 
 ```js
-round(Math.PI, 2) // 3.14
+round(Math.PI, 2); // 3.14
 ```
 
 - `modulo(n: number, d: number)`: Computes `n` modulo `d`.
@@ -117,7 +119,7 @@ the same sign as the dividend `n`
 
 ```js
 modulo(-1, 3); // 2
--1 % 3;  // -1
+-1 % 3; // -1
 ```
 
 ## Objects
@@ -125,10 +127,10 @@ modulo(-1, 3); // 2
 - `keys`: Type-safe `Object.keys` for `readonly` objects
 
 ```ts
-const mutableObject = { a: 'A', b: 'B' };
+const mutableObject = { a: "A", b: "B" };
 keys(mutableObject); // type string[]
 
-const readonlyObject = { a: 'A', b: 'B' } as const;
+const readonlyObject = { a: "A", b: "B" } as const;
 keys(readonlyObject); // type ('a'|'b')[]
 ```
 
@@ -136,12 +138,12 @@ keys(readonlyObject); // type ('a'|'b')[]
 
 ```ts
 const m = merge(
-  { foo: 123 },
-  { foo: "abc", bar: 123 },
-  { foo: true, baz: "abc" }
-)
+	{ foo: 123 },
+	{ foo: "abc", bar: 123 },
+	{ foo: true, baz: "abc" },
+);
 
-typeof m // { foo: boolean; bar: number; baz: string }
+typeof m; // { foo: boolean; bar: number; baz: string }
 ```
 
 ## Promises
@@ -174,7 +176,13 @@ arr.length; // 1
 - `randint(a:number, b: number)`: Returns a random integer in `[a;b]`
 
 ```js
-randint(0, 5) // 2
+randint(0, 5); // 2
+```
+
+- `randomItem(items: T[])`: Returns a random element from a collection
+
+```js
+randomItem([1,2,3]); // 3
 ```
 
 ## Regex
@@ -182,8 +190,8 @@ randint(0, 5) // 2
 - `regexEscape`: escape special Regex characters
 
 ```js
-regexEscape(".") // \.
-regexEscape("(*.*)") // \(\*\.\*\)
+regexEscape("."); // \.
+regexEscape("(*.*)"); // \(\*\.\*\)
 ```
 
 ## Sets
@@ -214,15 +222,14 @@ nanoId(); // b6eKfYLB
 - `capitalize`: Turns the first letter of a string to uppercase
 
 ```js
-capitalize("capitalized") // "Capitalized"
+capitalize("capitalized"); // "Capitalized"
 ```
 
 - `trim`, `trimStart`, `trimEnd`: trim (regex escaped) characters (substring) from a string
 
 ```js
-trim("--dashes-", "-") // "dashes"
-trimEnd("ellipsis...", ".") // "ellipsis"
-
+trim("--dashes-", "-"); // "dashes"
+trimEnd("ellipsis...", "."); // "ellipsis"
 ```
 
 ## Types

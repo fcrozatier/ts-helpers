@@ -10,6 +10,7 @@
 		/* Emit */
 		"declaration": true,
 		"sourceMap": false,
+		"rootDir": "./src",
 		"outDir": "./build",
 		"noEmitOnError": true,
 

@@ -69,11 +69,9 @@ export function type(value: unknown): Types {
 /**
  * Prettifies types (intersections etc) by ensuring type expansion
  */
-export type Prettify<T> =
-	& {
-		[K in keyof T]: T[K];
-	}
-	& {};
+export type Prettify<T> = {
+	[K in keyof T]: T[K];
+} & {};
 
 /**
  * Requires only certain keys of T
@@ -119,17 +117,31 @@ export type StrictExtract<T, U extends T> = T extends U ? T : never;
 export type Timeout = ReturnType<typeof setTimeout>;
 
 // https://github.com/Microsoft/TypeScript/issues/27024
-export type Equals<X, Y> = (<T>() => T extends X ? 1 : 0) extends
-	<U>() => U extends Y ? 1 : 0 ? true : false;
+export type Equals<X, Y> =
+	(<T>() => T extends X ? 1 : 0) extends <U>() => U extends Y ? 1 : 0
+		? true
+		: false;
 
 export type ReadOnlyKeys<T> = {
-	[K in keyof T]:
-		Equals<{ [P in K]: T[K] }, { readonly [P in K]: T[K] }> extends true ? K
-			: never;
+	[K in keyof T]: Equals<
+		{ [P in K]: T[K] },
+		{ readonly [P in K]: T[K] }
+	> extends true
+		? K
+		: never;
 }[keyof T];
 
-export type IsReadOnlyObject<T> = keyof T extends ReadOnlyKeys<T> ? true
-	: false;
+export type IsReadOnlyObject<T> =
+	keyof T extends ReadOnlyKeys<T> ? true : false;
+
+export type CamelToKebab<T extends string> =
+	T extends `${infer First}${infer Rest}`
+		? Rest extends ""
+			? Lowercase<First>
+			: Rest extends Capitalize<Rest>
+				? `${Lowercase<First>}-${CamelToKebab<Rest>}`
+				: `${Lowercase<First>}${CamelToKebab<Rest>}`
+		: T;
 
 export type StructuredCloneValue =
 	// Primitive types except symbol
