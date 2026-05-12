@@ -73,6 +73,9 @@ describe("areArraysEquivalent", () => {
 
 describe("zip", () => {
 	it("zips arrays", () => {
-		expect(zip([1, 2], ["a", "b"])).toEqual([[1, "a"], [2, "b"]]);
+		expect(zip([1, 2], ["a", "b"])).toEqual([
+			[1, "a"],
+			[2, "b"],
+		]);
 	});
 });

@@ -15,7 +15,8 @@ import { type IsReadOnlyObject, type Prettify, type } from "./types.js";
  */
 export const keys = Object.keys as <T>(
 	o: T,
-) => true extends IsReadOnlyObject<T> ? Extract<keyof T, PropertyKey>[]
+) => true extends IsReadOnlyObject<T>
+	? Extract<keyof T, PropertyKey>[]
 	: string[];
 
 /**
@@ -53,7 +54,8 @@ type Merge<T1, T2> = Prettify<Omit<T1, keyof T2> & T2>;
 type MergeArrayOfObjects<T extends readonly object[], T1 = {}> = T extends [
 	infer T2 extends object,
 	...infer Rest extends object[],
-] ? MergeArrayOfObjects<Rest, Merge<T1, T2>>
+]
+	? MergeArrayOfObjects<Rest, Merge<T1, T2>>
 	: T1;
 
 /**
