@@ -10,7 +10,7 @@
 		/* Emit */
 		"declaration": true,
 		"sourceMap": false,
-		"outDir": "./build",
+		"outDir": "build",
 		"noEmitOnError": true,
 
 		/* Interop Constraints */
